@@ -5,11 +5,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OfferThat.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace OfferThat.Controllers
 {
     public class HomeController : Controller
     {
+        private MyContext dbContext;
+        public HomeController(MyContext context)
+        {
+            dbContext = context;
+        }
         public IActionResult Index()
         {
             return View();
